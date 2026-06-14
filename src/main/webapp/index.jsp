@@ -1,0 +1,14 @@
+<%
+response.sendRedirect("register.jsp");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complaint Management System</title>
+</head>
+<body>
+
+<h1>Complaint Management System</h1>
+
+</body>
+</html>
