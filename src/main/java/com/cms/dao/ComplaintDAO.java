@@ -17,15 +17,18 @@ public class ComplaintDAO {
             Connection con = DBConnection.getConnection();
 
             String query =
-            "INSERT INTO complaint(title,description,status,employee_id) VALUES(?,?,?,?)";
+            "INSERT INTO complaint\r\n" + //
+                                "(title,description,category,status,employee_id)\r\n" + //
+                                "VALUES(?,?,?,?,?)";
 
             PreparedStatement ps =
                     con.prepareStatement(query);
 
-            ps.setString(1, complaint.getTitle());
-            ps.setString(2, complaint.getDescription());
-            ps.setString(3, complaint.getStatus());
-            ps.setInt(4, complaint.getEmployeeId());
+           ps.setString(1, complaint.getTitle());
+ps.setString(2, complaint.getDescription());
+ps.setString(3, complaint.getCategory());
+ps.setString(4, complaint.getStatus());
+ps.setInt(5, complaint.getEmployeeId());
 
             int rows = ps.executeUpdate();
 
@@ -131,5 +134,52 @@ public boolean updateStatus(int id, String status) {
     }
 
     return false;
+}
+public ArrayList<Complaint> searchComplaints(String keyword) {
+
+    ArrayList<Complaint> list =
+            new ArrayList<>();
+
+    try {
+
+        Connection con =
+                DBConnection.getConnection();
+
+        String query =
+                "SELECT * FROM complaint WHERE title LIKE ?";
+
+        PreparedStatement ps =
+                con.prepareStatement(query);
+
+        ps.setString(1, "%" + keyword + "%");
+
+        ResultSet rs =
+                ps.executeQuery();
+
+        while(rs.next()) {
+
+            Complaint c =
+                    new Complaint();
+
+            c.setId(
+                    rs.getInt("id"));
+
+            c.setTitle(
+                    rs.getString("title"));
+
+            c.setDescription(
+                    rs.getString("description"));
+
+            c.setStatus(
+                    rs.getString("status"));
+
+            list.add(c);
+        }
+
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+
+    return list;
 }
 }

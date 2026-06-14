@@ -22,6 +22,11 @@ public class RaiseComplaintServlet extends HttpServlet {
 
         String title = request.getParameter("title");
         String description = request.getParameter("description");
+        String category = request.getParameter("category");
+        String priority = request.getParameter("priority");
+
+
+
 
         HttpSession session = request.getSession(false);
 
@@ -38,6 +43,9 @@ public class RaiseComplaintServlet extends HttpServlet {
         complaint.setDescription(description);
         complaint.setStatus("Pending");
         complaint.setEmployeeId(emp.getId());
+        complaint.setCategory(category);
+        complaint.setPriority(priority);
+
 
         ComplaintDAO dao = new ComplaintDAO();
 
