@@ -61,6 +61,7 @@ Category
 <option>Network</option>
 <option>Security</option>
 <option>Maintenance</option>
+<option>Other</option>
 
 </select>
 

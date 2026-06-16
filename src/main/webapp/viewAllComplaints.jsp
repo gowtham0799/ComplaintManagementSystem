@@ -62,8 +62,7 @@ Complaint Management System - Admin Panel
 All Complaints
 </h2>
 
-<form action="searchComplaint" method="get">
-
+<form action="adminSearchComplaint" method="get">
 <div class="row mb-4">
 
 <div class="col-md-10">
@@ -101,6 +100,7 @@ Search
 <th>Description</th>
 <th>Employee ID</th>
 <th>Status</th>
+<th>Update Status</th>
 
 </tr>
 
@@ -160,6 +160,32 @@ Resolved
 %>
 
 </td>
+<td>
+
+<form action="updateStatus" method="post">
+
+<input type="hidden"
+       name="id"
+       value="<%= c.getId() %>">
+
+<select name="status"
+        class="form-select form-select-sm">
+
+<option value="Pending">Pending</option>
+<option value="In Progress">In Progress</option>
+<option value="Resolved">Resolved</option>
+
+</select>
+
+<br>
+
+<button class="btn btn-success btn-sm w-100">
+Update
+</button>
+
+</form>
+
+</td>
 
 </tr>
 
@@ -171,7 +197,7 @@ else{
 
 <tr>
 
-<td colspan="5" class="text-center text-danger">
+<td colspan="6" class="text-center text-danger">
 No Complaints Found
 </td>
 
@@ -188,8 +214,7 @@ No Complaints Found
 </div>
 
 <div class="text-center">
-
-<a href="adminDashboard.jsp"
+    <a href="adminDashboard"
 class="btn btn-secondary back-btn">
 Back To Dashboard
 </a>

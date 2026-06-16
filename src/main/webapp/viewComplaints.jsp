@@ -18,8 +18,7 @@
 <h2 class="mb-4 text-center">
 My Complaints
 </h2>
-<form action="searchComplaint" method="get">
-
+<form action="employeeSearchComplaint" method="get">
     <input class="form-control"
            name="keyword"
            placeholder="Search Complaint Title">

@@ -51,7 +51,7 @@ padding:30px;
 
 <h3>Admin Panel</h3>
 
-<a href="adminDashboard.jsp">
+<a href="adminDashboard">
 Dashboard
 </a>
 
@@ -73,49 +73,41 @@ Admin Dashboard
 
 <div class="row">
 
-<div class="col-md-4">
+    <div class="col-md-3">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h5>Total Complaints</h5>
+                <h1>${total}</h1>
+            </div>
+        </div>
+    </div>
 
-<div class="card shadow">
+    <div class="col-md-3">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h5>Pending</h5>
+                <h1>${pending}</h1>
+            </div>
+        </div>
+    </div>
 
-<div class="card-body">
+    <div class="col-md-3">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h5>In Progress</h5>
+                <h1>${inProgress}</h1>
+            </div>
+        </div>
+    </div>
 
-<h5>Total Complaints</h5>
-
-<h1>25</h1>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="card shadow">
-
-<div class="card-body">
-
-<h5>Pending</h5>
-
-<h1>8</h1>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="card shadow">
-
-<div class="card-body">
-
-<h5>Resolved</h5>
-
-<h1>17</h1>
-
-</div>
+    <div class="col-md-3">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h5>Resolved</h5>
+                <h1>${resolved}</h1>
+            </div>
+        </div>
+    </div>
 
 </div>
 

@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 
             session.setAttribute("employee", emp);
 
-            response.sendRedirect("dashboard.jsp");
+            response.sendRedirect("dashboard");
 
         } else {
 
